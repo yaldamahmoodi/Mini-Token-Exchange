@@ -1,0 +1,684 @@
+{
+	"info": {
+		"_postman_id": "488362c5-b36a-404b-b8ab-0d7691065709",
+		"name": "Mini-Token-Exchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22477028"
+	},
+	"item": [
+		{
+			"name": "Create an Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"userId\": \"user-8\",\n  \"originToken\": \"BTC\",\n  \"destinationToken\": \"USDT\",\n  \"amount\": 0.2\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": \"user-8\",\n  \"originToken\": \"BTC\",\n  \"destinationToken\": \"USDT\",\n  \"amount\": 0.6\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "141"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"8d-A32YqxFCUNWwjKWQepKjz0fuHlE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Nov 2025 18:00:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"4ea6ea1e-5dbc-4a99-91cf-87864d95d844\",\n    \"userId\": \"user-8\",\n    \"originToken\": \"BTC\",\n    \"destinationToken\": \"USDT\",\n    \"amount\": 0.6,\n    \"status\": \"PENDING\"\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": \"user-8\",\n  \"originToken\": \"BTC\",\n  \"destinationToken\": \"USDT\",\n  \"amount\": 0.3\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "78"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"4e-wyxyXm9w5BHSskh75uEIdMHmeGo\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Nov 2025 18:00:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"OrderDomainError\",\n    \"message\": \"Order amount must be greater than 0.5\"\n}"
+				},
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": \"\",\n  \"originToken\": \"BTC\",\n  \"destinationToken\": \"USDT\",\n  \"amount\": 0.3\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3a-rkzxTNU8S7YzlwYcvIoGzDj2xnc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Nov 2025 18:01:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"ValidationError\",\n    \"message\": \"userId is required\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Execute an Order",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"c5a39dfd-9093-40a4-af66-940e84d8f3f2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/execute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"execute"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"c5a39dfd-9093-40a4-af66-940e84d8f3f2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"execute"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29-iBiT+lKptFmkhlgQfeCV1/nIFqE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Nov 2025 17:59:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order executed successfully\"\n}"
+				},
+				{
+					"name": "400",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"c5a39dfd-9093-40a4-af66-940e84d8f3f2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"execute"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "97"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"61-dq/Xb+UzYwCYJDYFmIzcyApYm+c\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Nov 2025 18:02:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"OrderDomainError\",\n    \"message\": \"Order cannot be executed unless it is in PENDING status.\"\n}"
+				},
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/execute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"execute"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-ZdzO5sXopSXWJZQA9yX+iK/j8xM\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Nov 2025 18:02:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"ValidationError\",\n    \"message\": \"Invalid order ID\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Cancel an order",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": \"9ded23f8-c61d-4ea1-ad76-bc0734160d9a\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/orders/cancel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						"cancel"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"id\": \"1ba9106b-355b-4b3f-80ed-12daaff75107\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"cancel"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "41"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"29-+WJTbET4UbXIJ4W57wKVoLCE4cI\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Nov 2025 18:03:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Order canceled successfully\"\n}"
+				},
+				{
+					"name": "422",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"id\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/orders/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders",
+								"cancel"
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "56"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"38-ZdzO5sXopSXWJZQA9yX+iK/j8xM\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Nov 2025 18:03:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"ValidationError\",\n    \"message\": \"Invalid order ID\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Orders",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/orders?status=PENDING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "RateLimit-Policy",
+							"value": "20;w=300"
+						},
+						{
+							"key": "RateLimit-Limit",
+							"value": "20"
+						},
+						{
+							"key": "RateLimit-Remaining",
+							"value": "19"
+						},
+						{
+							"key": "RateLimit-Reset",
+							"value": "300"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1471"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5bf-R+RVjKUio9Bg8eusqiY1DmCzo6o\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Nov 2025 18:13:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": \"9e91c36a-3a72-4221-b2ce-ad23fdd3b3d2\",\n            \"userId\": \"user-1\",\n            \"originToken\": \"BTC\",\n            \"destinationToken\": \"USDT\",\n            \"amount\": 0.5,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": \"9d3051df-a1f5-4c10-b05f-3315f7078a8f\",\n            \"userId\": \"user-2\",\n            \"originToken\": \"BTC\",\n            \"destinationToken\": \"USDT\",\n            \"amount\": 0.5,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": \"82e22446-94f0-4be4-8e33-e88ed018ec6f\",\n            \"userId\": \"user-2\",\n            \"originToken\": \"BTC\",\n            \"destinationToken\": \"USDT\",\n            \"amount\": 0.5,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": \"4050a38e-0435-4ed8-a75d-bf3b2747f58e\",\n            \"userId\": \"user-2\",\n            \"originToken\": \"BTC\",\n            \"destinationToken\": \"USDT\",\n            \"amount\": 0.5,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": \"9ded23f8-c61d-4ea1-ad76-bc0734160d9a\",\n            \"userId\": \"user-2\",\n            \"originToken\": \"BTC\",\n            \"destinationToken\": \"USDT\",\n            \"amount\": 0.5,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": \"97bafbe0-cbaa-4cc1-b321-9deba06c1ffc\",\n            \"userId\": \"user-4\",\n            \"originToken\": \"ETH\",\n            \"destinationToken\": \"USDT\",\n            \"amount\": 1.1,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": \"397fb37d-7252-49ee-b06a-52163f136b6d\",\n            \"userId\": \"user-4\",\n            \"originToken\": \"ETH\",\n            \"destinationToken\": \"USDT\",\n            \"amount\": 1.1,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": \"c1c63ffb-1ab7-4705-9e22-680e764f146f\",\n            \"userId\": \"user-1\",\n            \"originToken\": \"BTC\",\n            \"destinationToken\": \"ETH\",\n            \"amount\": 1.2,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": \"f5b1b74a-8b5b-4138-a155-5d7220c05c19\",\n            \"userId\": \"user-1\",\n            \"originToken\": \"BTC\",\n            \"destinationToken\": \"ETH\",\n            \"amount\": 1.2,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": \"3565edcd-bc9b-435e-a725-0051a8114957\",\n            \"userId\": \"user-1\",\n            \"originToken\": \"ETH\",\n            \"destinationToken\": \"BTC\",\n            \"amount\": 2,\n            \"status\": \"PENDING\"\n        }\n    ],\n    \"total\": 14,\n    \"page\": 1,\n    \"limit\": 10,\n    \"totalPages\": 2\n}"
+				}
+			]
+		}
+	]
+}
