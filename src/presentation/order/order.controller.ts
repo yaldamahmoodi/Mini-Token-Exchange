@@ -16,6 +16,7 @@ export class OrderController {
         this.createOrder = this.createOrder.bind(this);
         this.executeOrder = this.executeOrder.bind(this);
         this.cancelOrder = this.cancelOrder.bind(this);
+        this.getFilteredOrders = this.getFilteredOrders.bind(this);
     }
 
     async createOrder(req: Request, res: Response) {
