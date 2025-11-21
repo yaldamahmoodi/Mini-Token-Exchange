@@ -16,12 +16,12 @@ npm install
 ````
 #### 3.Configure environment variables by creating a .env file in the root:
 
-DB_HOST=
-DB_PORT=
-DB_USER=
-DB_PASSWORD=
-DB_NAME=
-PORT=
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=myuser
+DB_PASSWORD=mypassword
+DB_NAME=mini_token_exchange
+PORT=3000
 
 #### 4.Run the application in development mode:
 ````
