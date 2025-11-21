@@ -31,6 +31,8 @@ npm run dev
 #### 5.To run tests:
 
 ````
+npm run build
+
 npm test
 ````
 The server will start on http://localhost:3000.
