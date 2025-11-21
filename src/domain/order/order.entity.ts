@@ -14,8 +14,8 @@ export class Order {
     }
 
     private validateBusinessRules() {
-        if (this.amount <= 1) {
-            throw new OrderDomainError("Order amount must be greater than 1");
+        if (this.amount < 0.5) {
+            throw new OrderDomainError("Order amount must be greater than 0.5");
         }
     }
 
