@@ -5,11 +5,14 @@ import {ActionOrderDto, actionOrderSchema} from "./dto/action-order.dto";
 import {ExecuteOrder} from "../../application/order/execute-order.usecase";
 import {handleError} from "../shared/handle-error"
 import {CancelOrder} from "../../application/order/cancel-order.usecase";
+import {getOrdersQuerySchema} from "./dto/get-orders.dto";
+import {GetFilteredOrders} from "../../application/order/get-filtered-orders.usecase";
 
 export class OrderController {
     constructor(private readonly createOrderUseCase: CreateOrder,
                 private readonly executeOrderUseCase: ExecuteOrder,
-                private readonly cancelOrderUseCase: CancelOrder,) {
+                private readonly cancelOrderUseCase: CancelOrder,
+                private readonly getFilteredOrdersUseCase: GetFilteredOrders) {
         this.createOrder = this.createOrder.bind(this);
         this.executeOrder = this.executeOrder.bind(this);
         this.cancelOrder = this.cancelOrder.bind(this);
@@ -45,4 +48,13 @@ export class OrderController {
         }
     }
 
+    async getFilteredOrders(req: Request, res: Response) {
+        try {
+            const query = getOrdersQuerySchema.parse(req.query);
+            const orders = await this.getFilteredOrdersUseCase.execute(query);
+            return res.status(200).json(orders);
+        } catch (err: any) {
+            return handleError(err, res);
+        }
+    }
 }
